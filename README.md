@@ -1,5 +1,16 @@
 # web scraping project with python , django and beautifulsoup
 
+# About the app
+In some cases most of the user's daily check the prices of some different item by searching again and again, and that is time consuming task. By using this app your can do this time consuming task in just one click.
+
+# How The App Works!
+The use of this app pretty much easy. Just You need to create your account by clicking the register tab and provide essential information. Then Login to your account with login page by entering valid username and password. if username and password were correct you will be navigate to the dashboard.
+
+# How To Add Item for tracking
+It is very easy to add item to the tracking list. Go to the Flipkart website, search your favourite item and copy the url from browser url box. click on "add new item" button, a pop up model will be appear past the url in the input box and click on save button, if the url is valid then item will be added to the track items list. Note!.. some urls are not working on this app.
+
+# How to update the tracked items
+Updating the list is very easy, just click on the update button and all items will be updated.
 # steps to run this project
 
 1- download code of this project
@@ -21,11 +32,4 @@ python manage.py migrate
 python manage.py runserver
 
 
-#How The App Works!
-The use of this app pretty much easy. Just You need to create your account by clicking the register tab and provide essential information. Then Login to your account with login page by entering valid username and password. if username and password were correct you will be navigate to the dashboard.
 
-#How To Add Item for tracking
-It is very easy to add item to the tracking list. Go to the Flipkart website, search your favourite item and copy the url from browser url box. click on "add new item" button, a pop up model will be appear past the url in the input box and click on save button, if the url is valid then item will be added to the track items list. Note!.. some urls are not working on this app.
-
-#How to update the tracked items
-Updating the list is very easy, just click on the update button and all items will be updated.
