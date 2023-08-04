@@ -13,7 +13,7 @@ It is very easy to add item to the tracking list. Go to the Flipkart website, se
 Updating the list is very easy, just click on the update button and all items will be updated.
 # steps to run this project
 
-1- download code of this project
+1- download the code of this project
 
 2- create a virtual env by this command. "virtualenv myenv" -> for linux users
 
