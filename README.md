@@ -1,0 +1,1 @@
+# web scraping project with python , django and beautifulsoup
