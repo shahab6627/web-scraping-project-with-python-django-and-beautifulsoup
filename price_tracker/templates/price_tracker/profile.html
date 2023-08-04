@@ -1,0 +1,92 @@
+{% extends 'price_tracker/base.html' %}
+{% load crispy_forms_tags %}
+
+{% load colorfilter %}
+
+{% block title %}
+    
+{% endblock title %}
+
+
+{% block content %}
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <form action="" method="post">
+          {%csrf_token%}
+
+          {{form|crispy}}
+    
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-primary" value="save">
+          </div>
+         </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  {%if messages %}
+  <div class="container">
+    <div class="row mt-3">
+      {%for message in messages %}
+      <div class="alert alert-danger">{{message}}</div>
+      {%endfor%}
+    </div>
+  </div>
+  {%endif%}
+
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col  ">
+                <button class="btn btn-primary mt-1" data-bs-toggle="modal" data-bs-target="#exampleModal">Add new item</button>
+            {% if items %}
+                <a class="btn btn-success mt-1" href="{% url 'updateitems' %}">Refresh Your tracked items</a>
+            </div>
+            {% endif %}
+            <div class="col" style="text-align: right;">
+                <div>Total number of item you have tracked : {{total_items}}</div>
+                <div>Total discounted items : {{discounted_items}}</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+{%if items %}
+{%for item in items %}
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{item.image_link}}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h6 class="card-title">{{item.item_title}}</h6>
+          <p class="card-text">current price : {{item.current_price}}</p>
+          <p class="card-text">old price : {{item.old_price}}</p>
+          <p class="card-text">price difference : {{item.price_difference|colorfilter}}</p>
+          <a href="{{item.url}}" target="_blank">{{item.url|slice:":100"}}....</a>
+
+          <div>
+          <a href="{%url 'delete' item.id %}" class="btn btn-danger mt-2" onclick="return confirm('Are you sure?')">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> &nbsp;
+{%endfor%}
+{%else%}
+<div> you don't have any tracked item...</div>
+{%endif%}
+        </div>
+    </div>
+
+  
+{% endblock content %}
+  
